@@ -3,28 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>about:blank</title>
-    <style>
-        iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            margin-top: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Choose a website</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Choose a website</h1>
 
-    <button onclick="loadWebsite('https://monkeygg2.github.io')">MonkeyGG2</button>
-    <button onclick="loadWebsite('https://evilmonke.github.io')">EvilMonkey</button>
-    <button onclick="loadWebsite('https://eggy-car.github.io/')">Eggy Car</button>
+    <div class="buttons-container">
+        <button onclick="loadWebsite('https://monkeygg2.github.io')">MonkeyGG2</button>
+        <button onclick="loadWebsite('https://evilmonke.github.io')">EvilMonkey</button>
+        <button onclick="loadWebsite('https://eggy-car.github.io/')">Eggy Car</button>
+    </div>
 
     <iframe id="iframe" src="" title="Website iframe"></iframe>
 
