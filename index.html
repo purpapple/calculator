@@ -16,11 +16,17 @@
         <button onclick="loadWebsite('https://eggy-car.github.io/')">Eggy Car</button>
     </div>
 
+    <button onclick="panicButton()" id="panicButton">Panic!</button>
+
     <iframe id="iframe" src="" title="Website iframe"></iframe>
 
     <script>
         function loadWebsite(url) {
             document.getElementById('iframe').src = url;
+        }
+
+        function panicButton() {
+            window.close();
         }
     </script>
 
