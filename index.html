@@ -23,32 +23,86 @@
         #panicButton:hover {
             background-color: darkred;
         }
+
+        #accessTokenContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #accessTokenInput {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        #errorMessage {
+            color: red;
+            display: none;
+            margin-top: 10px;
+        }
+
+        #buttonsContainer {
+            display: none;
+        }
+
+        #iframe {
+            display: none;
+            width: 100%;
+            height: 80vh;
+        }
     </style>
 </head>
 <body>
-    <h1>Choose a website</h1>
-
-    <div class="buttons-container">
-        <button onclick="loadWebsite('https://monkeygg2.github.io')">MonkeyGG2</button>
-        <button onclick="loadWebsite('https://evilmonke.github.io')">EvilMonkey</button>
-        <button onclick="loadWebsite('https://eggy-car.github.io/')">Eggy Car</button>
-        <button onclick="loadWebsite('https://daboss7173.github.io/oldprodigy/select/')">Old Prodigy</button>
+    <div id="accessTokenContainer">
+        <div>
+            <label for="accessTokenInput">Enter Access Code:</label>
+            <input type="text" id="accessTokenInput" placeholder="Enter token">
+            <button onclick="verifyAccessCode()">Submit</button>
+            <p id="errorMessage">Invalid access code. Please try again.</p>
+        </div>
     </div>
 
-    <button onclick="panicButton()" id="panicButton">Panic!</button>
+    <div id="mainContent" style="display: none;">
+        <h1>Choose a website</h1>
 
-    <iframe id="iframe" src="" title="Website iframe"></iframe>
+        <div class="buttons-container">
+            <button onclick="loadWebsite('https://monkeygg2.github.io')">MonkeyGG2</button>
+            <button onclick="loadWebsite('https://evilmonke.github.io')">EvilMonkey</button>
+            <button onclick="loadWebsite('https://eggy-car.github.io/')">Eggy Car</button>
+            <button onclick="loadWebsite('https://daboss7173.github.io/oldprodigy/select/')">Old Prodigy</button>
+        </div>
+
+        <button onclick="panicButton()" id="panicButton">Panic!</button>
+
+        <iframe id="iframe" src="" title="Website iframe"></iframe>
+    </div>
 
     <script>
+        function verifyAccessCode() {
+            const accessCode = document.getElementById('accessTokenInput').value;
+            const correctCode = 'EPICDUDE555';
+            const errorMessage = document.getElementById('errorMessage');
+            const accessTokenContainer = document.getElementById('accessTokenContainer');
+            const mainContent = document.getElementById('mainContent');
+
+            if (accessCode === correctCode) {
+                accessTokenContainer.style.display = 'none';
+                mainContent.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+
         function loadWebsite(url) {
             document.getElementById('iframe').src = url;
+            document.getElementById('iframe').style.display = 'block';
         }
 
         function panicButton() {
-            window.close();
+            window.close()
         }
     </script>
-
-    <script src="script.js"></script>
 </body>
 </html>
