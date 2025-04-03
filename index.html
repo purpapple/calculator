@@ -51,6 +51,7 @@
             display: none;
             width: 100%;
             height: 80vh;
+            border: none;
         }
     </style>
 </head>
@@ -96,8 +97,12 @@
         }
 
         function loadWebsite(url) {
-            document.getElementById('iframe').src = url;
-            document.getElementById('iframe').style.display = 'block';
+            if (url.startsWith('http://') || url.startsWith('https://')) {
+                document.getElementById('iframe').src = url;
+                document.getElementById('iframe').style.display = 'block';
+            } else {
+                alert('This website is not supported.');
+            }
         }
 
         function panicButton() {
